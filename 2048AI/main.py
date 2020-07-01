@@ -65,6 +65,7 @@ def move(grid, action):
     return grid, moved, sum
 
 
+#Ai가 들어가는 부분
 def evaluation(grid, n_empty):
     grid = np.array(grid)
 
@@ -167,6 +168,7 @@ def add_new_tiles(grid, depth=0):
     n_empty = len(fcs)
 
     # early stopping
+
     if n_empty >= 6 and depth >= 3:
         return evaluation(grid, n_empty)
 
@@ -176,6 +178,7 @@ def add_new_tiles(grid, depth=0):
     if n_empty == 0:
         _, new_score = maximize(grid, depth + 1)
         return new_score
+
 
     sum_score = 0
 
@@ -251,3 +254,4 @@ def run_game(game_class=Game2048, title='2048!', data_dir='save'):
 
 
 run_game()
+time.sleep(5)
